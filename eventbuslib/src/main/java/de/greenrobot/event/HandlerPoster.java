@@ -20,6 +20,11 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 
+/**
+ * 对应{@link ThreadMode#MainThread}，继承Handler，looper为Looper.getMainLooper()，即主线程Looper
+ * 1、enqueue()方法将事件放到队列中，并利用handler的sendMessage发送消息。
+ * 2、handleMessage在主线程，从队列中取出事件，并invoke事件响应函数进行处理。
+ */
 final class HandlerPoster extends Handler {
 
     private final PendingPostQueue queue;
