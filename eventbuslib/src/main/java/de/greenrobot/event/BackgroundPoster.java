@@ -19,8 +19,13 @@ import android.util.Log;
 
 /**
  * Posts events in background.
- * 
  * @author Markus
+ * @mark
+ * 对应 {@link ThreadMode#BackgroundThread}，实现Runnable接口。
+ * 1、通过enqueue()方法，向事件放到队列中，并调用线程池执行当前任务；
+ * 2、在run()方法中从队列取出事件，并invoke事件响应函数处理。
+ *
+ * 与{@link AsyncPoster}不同的是，BackgroundPoster中的任务只在同一个线程中依次执行，而不是并发执行。
  */
 final class BackgroundPoster implements Runnable {
 
