@@ -15,6 +15,9 @@
  */
 package de.greenrobot.event;
 
+/**
+ * 订阅者信息：包含subscriber对象、事件响应方法和优先级
+ */
 final class Subscription {
     final Object subscriber;
     final SubscriberMethod subscriberMethod;
