@@ -18,6 +18,9 @@ package de.greenrobot.event;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 订阅者和事件信息实体类，通过缓存存储不用的对象，减少下次创建的性能消耗。
+ */
 final class PendingPost {
     private final static List<PendingPost> pendingPostPool = new ArrayList<PendingPost>();
 
