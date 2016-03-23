@@ -40,4 +40,5 @@ EventBus中内置了并发处理机制，即支持工作线程向UI线程发送�
 <br/>
 4、onEventAsync（T event）对应ThreadMode.Async。运行在单独的工作线程中，不论发送事件的线程是否为主线程。跟BackgroundThread不一样，该模式的所有线程是独立的，因此适用于长耗时操作，例如网络访问。
 <br/>
+
 这样通过EventBus就可以不用维护引用和回调接口，从而实现组件间的消息/事件传递。
