@@ -42,3 +42,5 @@ EventBus中内置了并发处理机制，即支持工作线程向UI线程发送�
 <br/>
 
 这样通过EventBus就可以不用维护引用和回调接口，从而实现组件间的消息/事件传递。
+<br/>
+因为EventBus提供了多种ThreadMode，我们完全也可以使用EventBus来处理耗时操作。比如在打开一个Activity时，我们暂称为“A”，首先需要从服务端获取数据，我们首先注册EventBus；然后定义onEventMainThread(Response data)方法，接受请求到的数据并刷新界面；再然后，可以调用post(Request rq)来通知我们定义的RequestManger来访问网络并请求数据，当然RequestManger注册并定义了onEventAsync(Request rq)方法，它最后会调用EventBus.post(Response data)方法去通知A。
